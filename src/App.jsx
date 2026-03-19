@@ -16,17 +16,25 @@ function formatDuration(totalMs) {
 }
 
 function getStorageState() {
-  const savedSession = window.localStorage.getItem(STORAGE_KEY);
-
-  if (!savedSession) {
-    return {
-      running: false,
-      elapsedMs: 0,
-      startedAt: null,
-    };
-  }
-
   try {
+    if (typeof window === "undefined" || !window.localStorage) {
+      return {
+        running: false,
+        elapsedMs: 0,
+        startedAt: null,
+      };
+    }
+
+    const savedSession = window.localStorage.getItem(STORAGE_KEY);
+
+    if (!savedSession) {
+      return {
+        running: false,
+        elapsedMs: 0,
+        startedAt: null,
+      };
+    }
+
     const parsed = JSON.parse(savedSession);
 
     return {
@@ -61,7 +69,11 @@ function App() {
   }, [session.running]);
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    } catch {
+      // Ignore storage failures so the app still renders on restricted browsers.
+    }
   }, [session]);
 
   useEffect(() => {
