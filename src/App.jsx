@@ -136,7 +136,6 @@ function App() {
         minute: "2-digit",
       })
     : "Not started";
-  const formattedDuration = formatDuration(liveElapsedMs);
   const totalMinutes = Math.floor(liveElapsedMs / 60000);
   const totalHours = (liveElapsedMs / 3600000).toFixed(1);
 
@@ -148,7 +147,15 @@ function App() {
 
       <section className="hero-panel">
         <div className="hero-top">
-          <p className="brand-mark">MILK MODE</p>
+          <div className="brand-lockup">
+            <div className="brand-logo-shell" aria-hidden="true">
+              <img className="brand-logo" src="/pinatic-logo.png" alt="" />
+            </div>
+            <div>
+              <p className="brand-mark">MILK MODE</p>
+              <p className="brand-submark">Pinatic focus system</p>
+            </div>
+          </div>
           <div className="eyebrow-row">
             <span className={`status-pill ${session.running ? "live" : "idle"}`}>
               {session.running ? "On the clock" : "Idle"}
@@ -158,11 +165,9 @@ function App() {
         </div>
 
         <div className="hero-main">
-          <div className="timer-block">
+          <div className={`timer-block ${session.running ? "is-running" : ""}`}>
             <p className="section-label">Focus session</p>
-            <div className="timer-shell" data-time={formattedDuration}>
-              <h1 className="timer">{formattedDuration}</h1>
-            </div>
+            <h1 className="timer">{formatDuration(liveElapsedMs)}</h1>
           </div>
 
           <div className="message-block">
