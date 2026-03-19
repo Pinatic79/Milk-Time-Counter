@@ -1,25 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap");
+
 :root {
-  font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #f6efe3;
+  color: #f7f0e7;
   background:
-    radial-gradient(circle at top, rgba(255, 126, 68, 0.18), transparent 30%),
-    linear-gradient(180deg, #0b0d10 0%, #11151a 45%, #171d24 100%);
+    radial-gradient(circle at top, rgba(255, 111, 60, 0.2), transparent 32%),
+    linear-gradient(180deg, #090b0d 0%, #0f1317 48%, #171d23 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --display: "Archivo Expanded", "Arial Black", sans-serif;
-  --heading: "Inter Tight", "Avenir Next Condensed", sans-serif;
-  --text-main: #f6efe3;
-  --text-muted: #c6bbab;
-  --accent-strong: #ff7e44;
-  --accent-soft: #ffd27d;
-  --border: rgba(246, 239, 227, 0.12);
-  --border-strong: rgba(255, 126, 68, 0.32);
-  --shadow-heavy: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --display: "Bebas Neue", sans-serif;
+  --heading: "Space Grotesk", "Avenir Next", sans-serif;
+  --text-main: #f7f0e7;
+  --text-muted: #c4b7a8;
+  --accent-strong: #ff6f3c;
+  --accent-soft: #ffc97d;
+  --border: rgba(247, 240, 231, 0.12);
+  --border-strong: rgba(255, 111, 60, 0.32);
+  --shadow-heavy: 0 28px 80px rgba(0, 0, 0, 0.4);
 }
 
 * {

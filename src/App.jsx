@@ -136,35 +136,70 @@ function App() {
         minute: "2-digit",
       })
     : "Not started";
+  const totalMinutes = Math.floor(liveElapsedMs / 60000);
+  const totalHours = (liveElapsedMs / 3600000).toFixed(1);
 
   return (
     <main className="app-shell">
+      <div className="orb orb-one" aria-hidden="true" />
+      <div className="orb orb-two" aria-hidden="true" />
       <div className="noise" aria-hidden="true" />
 
       <section className="hero-panel">
-        <div className="eyebrow-row">
-          <span className={`status-pill ${session.running ? "live" : "idle"}`}>
-            {session.running ? "On the clock" : "Idle"}
-          </span>
-          <span className="status-pill subtle">Started: {startedLabel}</span>
+        <div className="hero-top">
+          <p className="brand-mark">MILK MODE</p>
+          <div className="eyebrow-row">
+            <span className={`status-pill ${session.running ? "live" : "idle"}`}>
+              {session.running ? "On the clock" : "Idle"}
+            </span>
+            <span className="status-pill subtle">Started: {startedLabel}</span>
+          </div>
         </div>
 
-        <p className="section-label">Focus session</p>
-        <h1 className="timer">{formatDuration(liveElapsedMs)}</h1>
+        <div className="hero-main">
+          <div className="timer-block">
+            <p className="section-label">Focus session</p>
+            <h1 className="timer">{formatDuration(liveElapsedMs)}</h1>
+          </div>
 
-        <p className="warning">DON&apos;T GET DISTRACTED ASSHOLE</p>
-        <p className="signature">made with &#10084; by Kushal for kushal.</p>
+          <div className="message-block">
+            <p className="warning">DON&apos;T GET DISTRACTED ASSHOLE</p>
+            <div className="metric-row" aria-label="Session metrics">
+              <div className="metric-card">
+                <span className="metric-label">minutes</span>
+                <strong className="metric-value">{totalMinutes}</strong>
+              </div>
+              <div className="metric-card">
+                <span className="metric-label">hours</span>
+                <strong className="metric-value">{totalHours}</strong>
+              </div>
+              <div className="metric-card">
+                <span className="metric-label">mode</span>
+                <strong className="metric-value">
+                  {session.running ? "locked" : "paused"}
+                </strong>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <div className="control-row">
-          <button type="button" className="action action-primary" onClick={handleStartPause}>
-            {session.running ? "Pause" : liveElapsedMs > 0 ? "Resume" : "Start"}
-          </button>
-          <button type="button" className="action" onClick={handleReset}>
-            Reset
-          </button>
-          <button type="button" className="action" onClick={handleFullscreen}>
-            {isFullscreen ? "Exit fullscreen" : "Go fullscreen"}
-          </button>
+        <div className="hero-bottom">
+          <div>
+            <p className="signature">made with &#10084; by Kushal for kushal.</p>
+            <p className="hint-line">secondary monitor fuel for deep work, code, study, and shipping</p>
+          </div>
+
+          <div className="control-row">
+            <button type="button" className="action action-primary" onClick={handleStartPause}>
+              {session.running ? "Pause" : liveElapsedMs > 0 ? "Resume" : "Start"}
+            </button>
+            <button type="button" className="action" onClick={handleReset}>
+              Reset
+            </button>
+            <button type="button" className="action" onClick={handleFullscreen}>
+              {isFullscreen ? "Exit fullscreen" : "Go fullscreen"}
+            </button>
+          </div>
         </div>
       </section>
     </main>
