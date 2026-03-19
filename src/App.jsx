@@ -55,6 +55,7 @@ function App() {
   const [session, setSession] = useState(() => getStorageState());
   const [now, setNow] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const logoUrl = `${import.meta.env.BASE_URL}pinatic-logo.png`;
 
   useEffect(() => {
     if (!session.running) {
@@ -149,7 +150,7 @@ function App() {
         <div className="hero-top">
           <div className="brand-lockup">
             <div className="brand-logo-shell" aria-hidden="true">
-              <img className="brand-logo" src="/pinatic-logo.png" alt="" />
+              <img className="brand-logo" src={logoUrl} alt="" />
             </div>
             <div>
               <p className="brand-mark">MILK MODE</p>
