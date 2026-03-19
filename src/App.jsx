@@ -136,6 +136,7 @@ function App() {
         minute: "2-digit",
       })
     : "Not started";
+  const formattedDuration = formatDuration(liveElapsedMs);
   const totalMinutes = Math.floor(liveElapsedMs / 60000);
   const totalHours = (liveElapsedMs / 3600000).toFixed(1);
 
@@ -159,7 +160,9 @@ function App() {
         <div className="hero-main">
           <div className="timer-block">
             <p className="section-label">Focus session</p>
-            <h1 className="timer">{formatDuration(liveElapsedMs)}</h1>
+            <div className="timer-shell" data-time={formattedDuration}>
+              <h1 className="timer">{formattedDuration}</h1>
+            </div>
           </div>
 
           <div className="message-block">
