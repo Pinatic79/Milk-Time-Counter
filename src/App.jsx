@@ -194,7 +194,7 @@ function App() {
 
         <div className="hero-bottom">
           <div>
-            <p className="signature">made with &#10084; by Kushal for kushal.</p>
+            <p className="signature">made with &#10084; by Kushal for Kushal.</p>
             <p className="hint-line">secondary monitor fuel for deep work, code, study, and shipping</p>
           </div>
 
