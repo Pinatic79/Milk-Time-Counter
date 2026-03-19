@@ -1,0 +1,48 @@
+:root {
+  font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f6efe3;
+  background:
+    radial-gradient(circle at top, rgba(255, 126, 68, 0.18), transparent 30%),
+    linear-gradient(180deg, #0b0d10 0%, #11151a 45%, #171d24 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --display: "Archivo Expanded", "Arial Black", sans-serif;
+  --heading: "Inter Tight", "Avenir Next Condensed", sans-serif;
+  --text-main: #f6efe3;
+  --text-muted: #c6bbab;
+  --accent-strong: #ff7e44;
+  --accent-soft: #ffd27d;
+  --border: rgba(246, 239, 227, 0.12);
+  --border-strong: rgba(255, 126, 68, 0.32);
+  --shadow-heavy: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
